@@ -1,0 +1,14 @@
+ocker run --name prometheus --rm  -d -v /Users/tiagomenezes/prometheus/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml -p  9090:9090 prom/prometheus
+docker run -d --name=grafana -p 3000:3000 grafana/grafana
+
+Node_Export- localhost:9100/metrics
+// Metricas 
+node_memory_MemFree_bytes
+node_cpu_seconds_total
+node_filesystem_avail_bytes
+rate(node_cpu_seconds_total{mode="system"}[1m]) 
+rate(node_network_receive_bytes_total[1m])
+
+
+grafana
+sum(rate(aula_requests_total[1m]))
